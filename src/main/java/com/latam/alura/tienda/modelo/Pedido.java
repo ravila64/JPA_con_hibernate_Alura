@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,9 +26,13 @@ public class Pedido {
 	@ManyToOne   	// un cliente(one) tiene muchos pedidos (Many)
 	private Cliente cliente;
 	// un pedido puede tener multiples productos
-	@ManyToMany
-	@JoinTable(name="items-pedido")
-	List<Producto> productos;
+//	@ManyToMany
+//	@JoinTable(name="items-pedido")
+//	List<Producto> productos;
+
+	@OneToMany
+	private List<ItemsPedido>  items;
+	
 	
 	public Pedido() {}
 	
