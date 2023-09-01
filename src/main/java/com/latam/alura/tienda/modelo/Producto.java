@@ -18,7 +18,6 @@ public class Producto{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	
 	private String nombre;
 	private String descripcion;
 	private BigDecimal precio;
@@ -27,10 +26,9 @@ public class Producto{
 	@ManyToOne
 	private Categoria categoria;
 
-	
 	public Producto() {
-		
 	}
+	
 	public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;

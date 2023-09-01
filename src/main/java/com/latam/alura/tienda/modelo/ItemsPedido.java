@@ -16,7 +16,7 @@ public class ItemsPedido {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private int cantidad;
-	private BigDecimal precioUNitario;
+	private BigDecimal precioUnitario;
 	@ManyToOne
 	private Producto producto;
 	@ManyToOne
@@ -28,14 +28,13 @@ public class ItemsPedido {
 	
 	// constructor
 	public ItemsPedido() {
-		super();
 	}
 	
 	public ItemsPedido(int cantidad, Producto producto, Pedido pedido) {
-		super();
 		this.cantidad = cantidad;
 		this.producto = producto;
 		this.pedido = pedido;
+		this.precioUnitario = producto.getPrecio(); // agregar el precio unitario
 	}
 	
 	// getters and setters
@@ -48,12 +47,12 @@ public class ItemsPedido {
 		return cantidad;
 	}
 
-	public BigDecimal getPrecioUNitario() {
-		return precioUNitario;
-	}
-
 	public Producto getProducto() {
 		return producto;
+	}
+	
+	public BigDecimal getPrecioUnitario() {
+		return precioUnitario;
 	}
 
 	public Pedido getPedido() {
@@ -64,10 +63,6 @@ public class ItemsPedido {
 		this.cantidad = cantidad;
 	}
 
-	public void setPrecioUNitario(BigDecimal precioUNitario) {
-		this.precioUNitario = precioUNitario;
-	}
-
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
@@ -76,6 +71,8 @@ public class ItemsPedido {
 		this.pedido = pedido;
 	}
 
-	
+	public void setPrecioUnitario(BigDecimal precioUnitario) {
+		this.precioUnitario = precioUnitario;
+	}
 	
 }

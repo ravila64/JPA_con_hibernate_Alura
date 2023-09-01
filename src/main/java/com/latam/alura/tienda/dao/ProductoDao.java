@@ -53,4 +53,10 @@ public class ProductoDao {
 		return em.createQuery(jpql,BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
 	}
 
+	@Override
+	public String toString() {
+		return "ProductoDao [em=" + em + "]";
+	}
+
+	
 }

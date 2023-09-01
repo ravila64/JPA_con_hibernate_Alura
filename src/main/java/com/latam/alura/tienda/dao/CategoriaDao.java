@@ -25,6 +25,12 @@ public class CategoriaDao {
 		this.em.remove(categoria);
 	}
 
+	@Override
+	public String toString() {
+		return "CategoriaDao [em=" + em + "]";
+	}
+
+	
 //	public Categoria consultarPorNombre(String nombre) {
 //		String jpql =" SELECT C FROM Categotia AS C WHERE C.nombre=:nombre ";
 //		return em.createQuery(jpql,Categoria.class).setParameter("nombre", nombre).getResultList();
