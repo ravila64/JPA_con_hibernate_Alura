@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 
 import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ClienteDao;
 import com.latam.alura.tienda.dao.PedidoDao;
 import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.Categoria;
@@ -22,12 +23,18 @@ public class RegistroDePedido {
 		EntityManager em = JPAUtils.getEntityManager();
 		ProductoDao productoDAO = new ProductoDao(em);
 		Producto producto = productoDAO.consultaPorId(1L);  // producto 1
-				
-		PedidoDao pedidoDAO = new PedidoDAO(em);
+
+		ClienteDao clienteDAO = new ClienteDao(em);
+		PedidoDao pedidoDAO = new PedidoDao(em);
 		
 		Cliente cliente = new Cliente ("Rene A","kb24561");
 		Pedido pedido = new Pedido(cliente);
 		pedido.agregarItems(new ItemsPedido(5,producto, pedido));
+		
+		em.getTransaction().begin();
+		clienteDAO.guardar(cliente);
+		pedidoDAO.guardar(pedido);
+		em.getTransaction().commit();
 		
 	}
 

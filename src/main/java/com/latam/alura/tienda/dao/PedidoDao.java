@@ -18,15 +18,14 @@ public class PedidoDao {
 	public void guardar(Pedido pedido) {
 		this.em.persist(pedido);
 	}
-	
-	
+		
 	public void actualizar(Pedido pedido) {
 		this.em.merge(pedido);
 	}
 	
 	public void remover(Pedido pedido) {
 		pedido=this.em.merge(pedido);
-		this.em.remove(pedido);
+		this.em.remove(pedido); 
 	}
 	
 	public Pedido consultaPorId(Long id) {
@@ -38,25 +37,13 @@ public class PedidoDao {
 		return em.createQuery(jqpl,Pedido.class).getResultList();
 	}
 	
-	public List<Pedido> consultaPorNombre(String nombre){
-		String jpql =" SELECT P FROM Pedido AS P WHERE P.nombre=:nombre ";
-		return em.createQuery(jpql,Pedido.class).setParameter("nombre", nombre).getResultList();
-	}
+	// faltaria consultaPorFecha(){
+	//	}
 	
-	public List<Pedido> consultaPorNombreDeCategoria(String nombre){
-		String jpql="SELECT p FROM Pedido AS p WHERE p.categoria.nombre=:nombre";
-		return em.createQuery(jpql,Pedido.class).setParameter("nombre", nombre).getResultList();
-	}
-	 
-	public BigDecimal consultarPrecioPorNombreDePedido(String nombre) {
-		String jpql="SELECT P.precio FROM Pedido AS P WHERE P.nombre=:nombre";
-		return em.createQuery(jpql,BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
-	}
-
-	@Override
-	public String toString() {
-		return "PedidoDao [em=" + em + "]";
-	}
-
+	
+//	public List<Pedido> consultaPorNombre(String nombre){
+//		String jpql =" SELECT P FROM Pedido AS P WHERE P.nombre=:nombre ";
+//		return em.createQuery(jpql,Pedido.class).setParameter("nombre", nombre).getResultList();
+//	}
 	
 }

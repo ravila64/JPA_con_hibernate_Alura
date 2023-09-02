@@ -74,5 +74,12 @@ public class ItemsPedido {
 	public void setPrecioUnitario(BigDecimal precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
+
+	// metodo para valor total
+	public BigDecimal getValor() {
+		BigDecimal vt = this.precioUnitario.multiply(new BigDecimal(this.cantidad));
+		return vt;
+	}
+	
 	
 }
