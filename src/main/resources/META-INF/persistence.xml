@@ -10,14 +10,15 @@
 			<property name="javax.persistence.jdbc.user" value="sa"/>
 			<property name="javax.persistence.jdbc.password" value=""/>
 			
-<!--		<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:tienda"/>-->
-
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
 			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 		<!-- create-drop	elimina y crea registros nuevamente-->
 	
+<!--			<property name="spring.h2.console.enabled" value="true"/>-->
+<!--			<property name="spring.h2.console.settings.web-allow-others" value="true"/>-->
+			
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -53,6 +53,12 @@ public class ProductoDao {
 		return em.createQuery(jpql,BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
 	}
 
+	// utiliza namedQuery
+	public BigDecimal consultarPrecioPorNombreDeProducto2(String nombre) {
+		return em.createNamedQuery("consultaDePrecio",BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
+	}
+
+
 	@Override
 	public String toString() {
 		return "ProductoDao [em=" + em + "]";

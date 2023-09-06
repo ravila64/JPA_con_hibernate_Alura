@@ -36,6 +36,7 @@ public class Pedido {
 
 	// tratamiento bidireccional
 	@OneToMany(mappedBy="pedido",cascade=CascadeType.ALL)
+	//Items de pedido se agregan automatico a items pedido, add, remove, etc=prop. CASCADE 
 	private List<ItemsPedido>  items=new ArrayList<>();  // Ahi se tiene una lista vacia
 	
 	public Pedido() {
