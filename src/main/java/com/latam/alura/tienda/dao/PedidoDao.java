@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.latam.alura.tienda.modelo.Pedido;
-import com.latam.alura.tienda.vo.relatorioDeVenta;
+import com.latam.alura.tienda.vo.RelatorioDeVenta;
 
 public class PedidoDao {
 	
@@ -43,19 +43,25 @@ public class PedidoDao {
 		return em.createQuery(jqpl, BigDecimal.class).getSingleResult();
 	}
 	
-	public List<Object[]> relatorioDeVentas(){
-		String jpql = "SELECT producto.nombre, "
-				+ "SUM(item.cantidad),"
-				+ "MAX(pedido.fecha) "
-				+ "FROM Pedido pedido "
-				+ "JOIN pedido.items item "
-				+ "JOIN item.producto producto "
-				+ "GROUP BY producto.nombre "
-				+ "GROUP BY item.cantidad DESC ";
-		return em.createQuery(jpql,Object[].class).getResultList();
+	// incluido segun texto del curso
+	public Double valorPromedioVendido() {
+	    String jpql= "SELECT AVG(p.valorTotal) FROM Pedido p";
+	    return em.createQuery(jpql,Double.class).getSingleResult();
 	}
 	
-	public List<relatorioDeVenta> relatorioDeVentasVO(){
+	public List<Object[]> relatorioDeVentas(){
+	    String jpql="SELECT producto.nombre, "
+	            + "SUM(item.cantidad), "
+	            + "MAX(pedido.fecha) "
+	            + "FROM Pedido pedido "
+	            + "JOIN pedido.items item "
+	            + "JOIN item.producto producto "
+	            + "GROUP BY producto.nombre "
+	            + "ORDER BY item.cantidad DESC";
+	    return em.createQuery(jpql,Object[].class).getResultList();
+	}
+	
+	public List<RelatorioDeVenta> relatorioDeVentasVO(){
 		String jpql = "SELECT new com.latam.alura.tienda.vo.RelatorioDeVenta(producto.nombre, "
 				+ "SUM(item.cantidad),"
 				+ "MAX(pedido.fecha)) "
@@ -63,8 +69,8 @@ public class PedidoDao {
 				+ "JOIN pedido.items item "
 				+ "JOIN item.producto producto "
 				+ "GROUP BY producto.nombre "
-				+ "GROUP BY item.cantidad DESC ";
-		return em.createQuery(jpql,relatorioDeVenta.class).getResultList();
+				+ "ORDER BY item.cantidad DESC ";
+		return em.createQuery(jpql,RelatorioDeVenta.class).getResultList();
 	}
 	
 	// faltaria consultaPorFecha(){}

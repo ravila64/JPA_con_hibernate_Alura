@@ -2,12 +2,12 @@ package com.latam.alura.tienda.vo;
 
 import java.time.LocalDate;
 
-public class relatorioDeVenta {
+public class RelatorioDeVenta {
 	private String nombreProducto;
 	private Long cantProducto;
 	private LocalDate FechaUltimaVenta;
 	
-	public relatorioDeVenta(String nombreProducto, Long cantProducto, LocalDate fechaUltimaVenta) {
+	public RelatorioDeVenta(String nombreProducto, Long cantProducto, LocalDate fechaUltimaVenta) {
 		this.nombreProducto = nombreProducto;
 		this.cantProducto = cantProducto;
 		FechaUltimaVenta = fechaUltimaVenta;

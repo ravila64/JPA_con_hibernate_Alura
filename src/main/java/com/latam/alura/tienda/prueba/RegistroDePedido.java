@@ -15,7 +15,7 @@ import com.latam.alura.tienda.modelo.ItemsPedido;
 import com.latam.alura.tienda.modelo.Pedido;
 import com.latam.alura.tienda.modelo.Producto;
 import com.latam.alura.tienda.utils.JPAUtils;
-import com.latam.alura.tienda.vo.relatorioDeVenta;
+import com.latam.alura.tienda.vo.RelatorioDeVenta;
 
 public class RegistroDePedido {
 
@@ -50,7 +50,7 @@ public class RegistroDePedido {
 //		}
 		
 		// Cuando es de tipo o nombre de una clase definida  ej. relatorioDeVenta
-		List<relatorioDeVenta> relatorioVO = pedidoDAO.relatorioDeVentasVO();
+		List<RelatorioDeVenta> relatorioVO = pedidoDAO.relatorioDeVentasVO();
 		relatorioVO.forEach(System.out::println);
 		
 	}
