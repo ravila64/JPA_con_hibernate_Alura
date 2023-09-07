@@ -1,6 +1,7 @@
 package com.latam.alura.tienda.dao;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -58,6 +59,14 @@ public class ProductoDao {
 		return em.createNamedQuery("Producto.consultaDePrecio",BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
 	}
 
+		
+	// consultas con parametros dinamicos
+	public List<Producto> consultarPorParametros(String nombre, BigDecimal precio, LocalDate fecha){
+		
+		
+		return null;
+		
+	}
 
 	@Override
 	public String toString() {
