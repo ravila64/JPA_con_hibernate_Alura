@@ -55,7 +55,7 @@ public class ProductoDao {
 
 	// utiliza namedQuery
 	public BigDecimal consultarPrecioPorNombreDeProducto2(String nombre) {
-		return em.createNamedQuery("consultaDePrecio",BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
+		return em.createNamedQuery("Producto.consultaDePrecio",BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
 	}
 
 

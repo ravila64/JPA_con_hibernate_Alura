@@ -30,10 +30,9 @@ public class CategoriaDao {
 		return "CategoriaDao [em=" + em + "]";
 	}
 
-	
-//	public Categoria consultarPorNombre(String nombre) {
-//		String jpql =" SELECT C FROM Categotia AS C WHERE C.nombre=:nombre ";
-//		return em.createQuery(jpql,Categoria.class).setParameter("nombre", nombre).getResultList();
-//	}
-	
+	public Categoria consultaPorNombre(String nombre){
+		String jpql =" SELECT C FROM Categoria AS C WHERE C.nombre=:nombre ";
+		return em.createQuery(jpql,Categoria.class).setParameter("nombre", nombre).getSingleResult();
+	}
+
 }

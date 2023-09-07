@@ -39,9 +39,17 @@ public class Pedido {
 	//Items de pedido se agregan automatico a items pedido, add, remove, etc=prop. CASCADE 
 	private List<ItemsPedido>  items=new ArrayList<>();  // Ahi se tiene una lista vacia
 	
-	public Pedido() {
+	public List<ItemsPedido> getItems() {
+		return items;
 	}
 
+	public void setItems(List<ItemsPedido> items) {
+		this.items = items;
+	}
+
+	public Pedido() {
+	}
+	
 	// añadir valoers a la lista
 	public void agregarItems(ItemsPedido item) {
 		item.setPedido(this);
