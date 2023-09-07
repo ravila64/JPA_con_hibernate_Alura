@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,9 @@ public class Pedido {
 	private Long id;
 	private LocalDate fecha=LocalDate.now();
 	@Column(name="valor_total")
-	private BigDecimal valorTotal=new BigDecimal(0); 
-	@ManyToOne   	// un cliente(one) tiene muchos pedidos (Many)
+	private BigDecimal valorTotal=new BigDecimal(0);
+	// un cliente(one) tiene muchos pedidos (Many)
+	@ManyToOne(fetch=FetchType.LAZY)   	
 	private Cliente cliente;
 	// un pedido puede tener multiples productos
 //	@ManyToMany
