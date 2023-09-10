@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="productos")
 @NamedQuery(name="Producto.consultaDePrecio",query="SELECT P.precio FROM Producto AS P WHERE P.nombre=:nombre")
+
 public class Producto{
 
 	@Id
