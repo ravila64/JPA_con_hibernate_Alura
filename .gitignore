@@ -6,7 +6,6 @@ target/
 *.bak
 *.swp
 *~.nib
-*.txt
 local.properties
 .settings/
 .mvn/
