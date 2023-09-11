@@ -93,7 +93,7 @@ public class LoadRecords {
 		// File file = new File("C:\\Users\\Public\\Alura\\jpa\\"+type+".txt");
 		// File file = new File("C:\\Users\\Servidor\\eclipse-workspace\\DBJPA\\"+type+".txt");
 		// cambiar a true o false dependiendo equipo de trabajo
-		boolean lenovo=true;
+		boolean lenovo=false;
 		File file=null;
 		if (lenovo) {
 			file = new File("C:\\Users\\Rene Avila Alonso\\eclipse-workspace\\JPA_con_hibernate_Alura\\src\\main\\resources\\utils\\"+type+".txt");
