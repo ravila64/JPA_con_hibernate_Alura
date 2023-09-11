@@ -92,7 +92,14 @@ public class LoadRecords {
 	private static List<String> readFile(String type) throws FileNotFoundException {
 		// File file = new File("C:\\Users\\Public\\Alura\\jpa\\"+type+".txt");
 		// File file = new File("C:\\Users\\Servidor\\eclipse-workspace\\DBJPA\\"+type+".txt");
-		File file = new File("C:\\Users\\Servidor\\eclipse-workspace\\JPA_con_hibernate_Alura\\src\\main\\resources\\utils\\"+type+".txt");
+		// cambiar a true o false dependiendo equipo de trabajo
+		boolean lenovo=true;
+		File file=null;
+		if (lenovo) {
+			file = new File("C:\\Users\\Rene Avila Alonso\\eclipse-workspace\\JPA_con_hibernate_Alura\\src\\main\\resources\\utils\\"+type+".txt");
+		}else {
+			file = new File("C:\\Users\\Servidor\\eclipse-workspace\\JPA_con_hibernate_Alura\\src\\main\\resources\\utils\\"+type+".txt");
+		}
 		Scanner scan = new Scanner(file);
 		List<String> pedido= new ArrayList<>();
 		while(scan.hasNextLine()){
